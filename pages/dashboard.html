@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | Finance Tracker</title>
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="shortcut icon" href="../media/logo.jpg" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  </head>
+
+  <body>
+    <div class="dashboard-container">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <a href="../pages/dashboard.html" class="brand">
+          <div class="brand-icon">
+            <i data-lucide="wallet"></i>
+          </div>
+          <span>Finance Tracker</span>
+        </a>
+
+        <div class="sidebar-label">MENU</div>
+
+        <nav class="navigation">
+          <a href="dashboard.html" class="nav-link active">
+            <i data-lucide="layout-dashboard"></i>
+            <span>Dashboard</span>
+          </a>
+
+          <a href="transactions.html" class="nav-link">
+            <i data-lucide="receipt"></i>
+            <span>Transactions</span>
+          </a>
+
+          <a href="analytics.html" class="nav-link">
+            <i data-lucide="chart-no-axes-combined"></i>
+            <span>Analytics</span>
+          </a>
+
+          <a href="budget.html" class="nav-link">
+            <i data-lucide="wallet-cards"></i>
+            <span>Budget</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-label preferences-label">PREFERENCES</div>
+
+        <nav class="navigation">
+          <a href="settings.html" class="nav-link">
+            <i data-lucide="settings"></i>
+            <span>Settings</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="help-card">
+            <div class="help-icon">
+              <i data-lucide="circle-help"></i>
+            </div>
+            <h4>Need help?</h4>
+            <p>Manage your finances with confidence.</p>
+          </div>
+
+          <button
+            type="button"
+            class="nav-link logout-button"
+            id="logoutButton"
+          >
+            <i data-lucide="log-out"></i>
+            <span>Log Out</span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Topbar -->
+        <header class="topbar">
+          <div class="topbar-left">
+            <button
+              type="button"
+              class="menu-toggle"
+              id="menuToggle"
+              aria-label="Toggle navigation"
+              aria-controls="sidebar"
+              aria-expanded="false"
+            >
+              <i data-lucide="menu"></i>
+            </button>
+
+            <div>
+              <p class="breadcrumb">Pages / Dashboard</p>
+              <h2>Dashboard</h2>
+            </div>
+          </div>
+
+          <div class="topbar-right">
+            <button
+              type="button"
+              class="icon-button"
+              aria-label="Notifications"
+            >
+              <i data-lucide="bell"></i>
+            </button>
+
+            <div class="profile">
+              <div class="avatar" id="userAvatar">U</div>
+
+              <div class="profile-info">
+                <h4 id="userName">Loading...</h4>
+                <p id="userEmail">Loading account...</p>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Dashboard Body -->
+        <section class="dashboard-body">
+          <div class="welcome-section">
+            <div>
+              <h1>Welcome back, <span id="welcomeName">there</span>!</h1>
+              <p>Here's what's happening with your finances today.</p>
+            </div>
+
+            <a href="transactions.html" class="primary-button">
+              <i data-lucide="plus"></i>
+              Add Transaction
+            </a>
+          </div>
+
+          <!-- Financial Summary Cards -->
+          <section class="summary-grid">
+            <article class="summary-card balance-card">
+              <div class="summary-top">
+                <span>Total Balance</span>
+                <div class="summary-icon balance-icon">
+                  <i data-lucide="wallet"></i>
+                </div>
+              </div>
+
+              <h2 id="totalBalance">₦0.00</h2>
+
+              <p class="summary-description">Your current financial balance</p>
+            </article>
+
+            <article class="summary-card">
+              <div class="summary-top">
+                <span>Total Income</span>
+                <div class="summary-icon income-icon">
+                  <i data-lucide="trending-up"></i>
+                </div>
+              </div>
+
+              <h2 id="totalIncome">₦0.00</h2>
+
+              <p class="summary-description">Money received</p>
+            </article>
+
+            <article class="summary-card">
+              <div class="summary-top">
+                <span>Total Expenses</span>
+                <div class="summary-icon expense-icon">
+                  <i data-lucide="trending-down"></i>
+                </div>
+              </div>
+
+              <h2 id="totalExpenses">₦0.00</h2>
+
+              <p class="summary-description">Money spent</p>
+            </article>
+
+            <article class="summary-card">
+              <div class="summary-top">
+                <span>Monthly Budget</span>
+                <div class="summary-icon budget-icon">
+                  <i data-lucide="target"></i>
+                </div>
+              </div>
+
+              <h2 id="monthlyBudget">₦0.00</h2>
+
+              <p class="summary-description">Your monthly spending limit</p>
+            </article>
+          </section>
+
+          <!-- Charts and Budget -->
+          <section class="overview-grid">
+            <article class="content-card chart-card">
+              <div class="card-heading">
+                <div>
+                  <h3>Financial Overview</h3>
+                  <p>Your income and expenses over time</p>
+                </div>
+
+                <span class="period-label">Last 6 months</span>
+              </div>
+
+              <div class="chart-placeholder">
+                <div class="chart-empty-icon">
+                  <i data-lucide="chart-no-axes-combined"></i>
+                </div>
+
+                <h4>No financial data yet</h4>
+                <p>Add transactions to see your financial trends here.</p>
+              </div>
+            </article>
+
+            <article class="content-card budget-card">
+              <div class="card-heading">
+                <div>
+                  <h3>Budget Progress</h3>
+                  <p>Your monthly spending</p>
+                </div>
+
+                <i data-lucide="ellipsis" class="muted-icon"></i>
+              </div>
+
+              <div class="budget-empty">
+                <div class="budget-circle">
+                  <i data-lucide="wallet-cards"></i>
+                </div>
+
+                <h4>No budget set</h4>
+                <p>Create a budget to track your spending.</p>
+
+                <a href="budget.html" class="secondary-button"> Set Budget </a>
+              </div>
+            </article>
+          </section>
+
+          <!-- Recent Transactions -->
+          <section class="content-card transactions-card">
+            <div class="card-heading transactions-heading">
+              <div>
+                <h3>Recent Transactions</h3>
+                <p>Your latest financial activities</p>
+              </div>
+
+              <a href="transactions.html" class="view-all">
+                View all
+                <i data-lucide="arrow-up-right"></i>
+              </a>
+            </div>
+
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th>TRANSACTION</th>
+                    <th>CATEGORY</th>
+                    <th>DATE</th>
+                    <th>AMOUNT</th>
+                    <th>TYPE</th>
+                  </tr>
+                </thead>
+
+                <tbody id="recentTransactions">
+                  <tr>
+                    <td colspan="5" class="empty-table">
+                      No transactions yet. Add your first transaction to get
+                      started.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <script type="module" src="../js/dashboard.js"></script>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

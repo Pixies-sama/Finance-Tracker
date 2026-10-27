@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="theme-color" content="#081426" />
+    <meta
+      name="description"
+      content="Finance Tracker helps you track income, manage expenses, plan budgets, and understand your spending in one place."
+    />
+
+    <title>Finance Tracker | Take Control of Your Money</title>
+    <link rel="shortcut icon" href="../media/logo.png" type="image/x-icon">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/index.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <header class="site-header">
+      <nav class="navbar container" aria-label="Main navigation">
+        <a href="index.html" class="brand" aria-label="FinTrack home">
+          <span class="brand-icon">
+            <img src="./media/logo.png" alt="" width="62" height="62">
+          </span>
+          <span>Finance <span class="brand-accent">Tracker</span></span>
+        </a>
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="navLinks"
+          type="button"
+        >
+          <i data-lucide="menu"></i>
+        </button>
+
+        <div class="nav-links" id="navLinks">
+          <a href="#home" class="nav-link active">Home</a>
+          <a href="#features" class="nav-link">Features</a>
+          <a href="#how-it-works" class="nav-link">How It Works</a>
+          <a href="#about" class="nav-link">About</a>
+
+          <div class="nav-actions">
+            <a
+              href="Auth/signin.html"
+              class="button button-outline button-small"
+            >
+              Sign In
+            </a>
+            <a
+              href="Auth/signup.html"
+              class="button button-primary button-small"
+            >
+              Get Started
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero section" id="home">
+        <div class="hero-glow hero-glow-one"></div>
+        <div class="hero-glow hero-glow-two"></div>
+
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <span class="eyebrow">
+              <span class="status-dot"></span>
+              SMARTER MONEY. BRIGHTER FUTURE.
+            </span>
+
+            <h1>
+              Take Control of
+              <span class="gradient-text">Your Money.</span>
+            </h1>
+
+            <p class="hero-description">
+              Finance Tracker helps you track your income, manage your expenses, and
+              understand where your money goes — all in one place. Make informed
+              decisions and build healthier financial habits.
+            </p>
+
+            <div class="hero-actions">
+              <a
+                href="Auth/signup.html"
+                class="button button-primary button-large"
+              >
+                Get Started for Free
+                <i data-lucide="arrow-right"></i>
+              </a>
+
+              <a
+                href="Auth/signin.html"
+                class="button button-outline button-large"
+              >
+                <i data-lucide="log-in"></i>
+                Sign In
+              </a>
+            </div>
+
+            <div class="hero-points">
+              <span>
+                <i data-lucide="check-circle-2"></i>
+                Easy to use
+              </span>
+              <span>
+                <i data-lucide="check-circle-2"></i>
+                Organized finances
+              </span>
+              <span>
+                <i data-lucide="check-circle-2"></i>
+                Clear insights
+              </span>
+            </div>
+          </div>
+
+          <!-- Illustrative dashboard preview -->
+          <div
+            class="dashboard-preview"
+            aria-label="Illustrative FinTrack dashboard preview"
+          >
+            <div class="preview-topbar">
+              <a href="#home" class="preview-brand">
+                <i data-lucide="chart-no-axes-column-increasing"></i>
+                <span>Finance<span class="brand-accent">Tracker</span></span>
+              </a>
+
+              <span class="preview-user">
+                <i data-lucide="circle-user-round"></i>
+                Your finances
+              </span>
+            </div>
+
+            <div class="preview-body">
+              <aside class="preview-sidebar" aria-hidden="true">
+                <div class="preview-side-link selected">
+                  <i data-lucide="layout-dashboard"></i>
+                  <span>Dashboard</span>
+                </div>
+                <div class="preview-side-link">
+                  <i data-lucide="arrow-left-right"></i>
+                  <span>Transactions</span>
+                </div>
+                <div class="preview-side-link">
+                  <i data-lucide="wallet"></i>
+                  <span>Budgets</span>
+                </div>
+                <div class="preview-side-link">
+                  <i data-lucide="chart-no-axes-combined"></i>
+                  <span>Analytics</span>
+                </div>
+              </aside>
+
+              <div class="preview-main">
+                <div class="preview-summary-grid">
+                  <article class="preview-card balance-card">
+                    <span class="preview-label">Illustrative balance</span>
+                    <strong>₦245,000.00</strong>
+                    <span class="preview-note">
+                      <i data-lucide="trending-up"></i>
+                      Your money at a glance
+                    </span>
+                  </article>
+
+                  <article class="preview-card">
+                    <span class="preview-label">Income</span>
+                    <strong class="income-value">₦180,000</strong>
+                    <span class="preview-mini-icon income-icon">
+                      <i data-lucide="trending-up"></i>
+                    </span>
+                  </article>
+
+                  <article class="preview-card">
+                    <span class="preview-label">Expenses</span>
+                    <strong class="expense-value">₦85,000</strong>
+                    <span class="preview-mini-icon expense-icon">
+                      <i data-lucide="trending-down"></i>
+                    </span>
+                  </article>
+                </div>
+
+                <div class="preview-details-grid">
+                  <article class="preview-card chart-card">
+                    <div class="preview-card-heading">
+                      <h3>Spending overview</h3>
+                      <span>Example</span>
+                    </div>
+
+                    <div class="chart-area">
+                      <div class="chart-y-labels" aria-hidden="true">
+                        <span>₦30k</span>
+                        <span>₦20k</span>
+                        <span>₦10k</span>
+                        <span>₦0</span>
+                      </div>
+
+                      <svg
+                        class="spending-chart"
+                        viewBox="0 0 320 150"
+                        role="img"
+                        aria-label="Illustrative spending trend chart"
+                      >
+                        <defs>
+                          <linearGradient
+                            id="chartFill"
+                            x1="0"
+                            y1="0"
+                            x2="0"
+                            y2="1"
+                          >
+                            <stop
+                              offset="0%"
+                              stop-color="#14b8a6"
+                              stop-opacity="0.35"
+                            />
+                            <stop
+                              offset="100%"
+                              stop-color="#14b8a6"
+                              stop-opacity="0"
+                            />
+                          </linearGradient>
+                        </defs>
+
+                        <path
+                          d="M5 115 C28 100, 38 65, 65 75 S95 120, 125 85 S160 45, 190 65 S230 90, 250 48 S285 35, 315 25 L315 145 L5 145 Z"
+                          fill="url(#chartFill)"
+                        />
+                        <path
+                          d="M5 115 C28 100, 38 65, 65 75 S95 120, 125 85 S160 45, 190 65 S230 90, 250 48 S285 35, 315 25"
+                          fill="none"
+                          stroke="#2dd4bf"
+                          stroke-width="3"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                    </div>
+
+                    <div class="chart-months" aria-hidden="true">
+                      <span>Jan</span>
+                      <span>Feb</span>
+                      <span>Mar</span>
+                      <span>Apr</span>
+                      <span>May</span>
+                      <span>Jun</span>
+                    </div>
+                  </article>
+
+                  <article class="preview-card recent-card">
+                    <div class="preview-card-heading">
+                      <h3>Recent activity</h3>
+                    </div>
+
+                    <div class="preview-transaction">
+                      <span class="transaction-icon income-icon">
+                        <i data-lucide="wallet"></i>
+                      </span>
+                      <div class="transaction-info">
+                        <strong>Salary</strong>
+                        <span>Income</span>
+                      </div>
+                      <b class="income-value">+₦150k</b>
+                    </div>
+
+                    <div class="preview-transaction">
+                      <span class="transaction-icon expense-icon">
+                        <i data-lucide="utensils"></i>
+                      </span>
+                      <div class="transaction-info">
+                        <strong>Lunch</strong>
+                        <span>Food</span>
+                      </div>
+                      <b class="expense-value">-₦5.5k</b>
+                    </div>
+
+                    <div class="preview-transaction">
+                      <span class="transaction-icon transport-icon">
+                        <i data-lucide="car-front"></i>
+                      </span>
+                      <div class="transaction-info">
+                        <strong>Transport</strong>
+                        <span>Travel</span>
+                      </div>
+                      <b class="expense-value">-₦3k</b>
+                    </div>
+                  </article>
+                </div>
+
+                <p class="preview-disclaimer">
+                  Illustrative preview · Sample figures, not live data
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section class="section section-border" id="features">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">FEATURES</span>
+            <h2>Everything You Need to Stay in Control</h2>
+            <p>
+              A clearer way to organize your finances, understand your spending,
+              and work towards your goals.
+            </p>
+          </div>
+
+          <div class="features-grid">
+            <article class="feature-card">
+              <div class="feature-icon">
+                <i data-lucide="wallet"></i>
+              </div>
+              <h3>Track Transactions</h3>
+              <p>
+                Record your income and expenses, review past entries, and keep
+                your financial activity organized.
+              </p>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-icon">
+                <i data-lucide="tags"></i>
+              </div>
+              <h3>Organize Spending</h3>
+              <p>
+                Categorize transactions so you can see what you're spending on
+                and keep your records clear.
+              </p>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-icon">
+                <i data-lucide="target"></i>
+              </div>
+              <h3>Plan Your Budget</h3>
+              <p>
+                Give your money a plan and work towards more intentional
+                spending and saving habits.
+              </p>
+            </article>
+
+            <article class="feature-card">
+              <div class="feature-icon">
+                <i data-lucide="chart-no-axes-combined"></i>
+              </div>
+              <h3>Understand Your Finances</h3>
+              <p>
+                Use visual summaries and spending insights to make more informed
+                financial decisions.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- How it works -->
+      <section class="section section-border" id="how-it-works">
+        <div class="container how-grid">
+          <div class="how-content">
+            <span class="eyebrow">HOW IT WORKS</span>
+            <h2>Build Better Money Habits in Three Steps</h2>
+            <p class="section-description">
+              Getting started is simple. Set up your account, record your
+              activity, and use what you learn to plan ahead.
+            </p>
+
+            <div class="steps-list">
+              <article class="step">
+                <span class="step-number">01</span>
+                <div>
+                  <h3>Create your account</h3>
+                  <p>Sign up to create your personal FinTrack account.</p>
+                </div>
+              </article>
+
+              <article class="step">
+                <span class="step-number">02</span>
+                <div>
+                  <h3>Record your transactions</h3>
+                  <p>
+                    Add income and expenses to keep your records up to date.
+                  </p>
+                </div>
+              </article>
+
+              <article class="step">
+                <span class="step-number">03</span>
+                <div>
+                  <h3>Review and improve</h3>
+                  <p>Use your financial summaries to understand your habits.</p>
+                </div>
+              </article>
+            </div>
+
+            <a href="Auth/signup.html" class="button button-primary">
+              Start Your Journey
+              <i data-lucide="arrow-right"></i>
+            </a>
+          </div>
+
+          <aside class="about-card" id="about">
+            <div class="about-decoration"></div>
+            <span class="about-icon">
+              <i data-lucide="sprout"></i>
+            </span>
+            <span class="eyebrow">YOUR MONEY, YOUR PLAN</span>
+            <h2>Small Steps. Better Habits. Brighter Goals.</h2>
+            <p>
+              FinTrack is designed to make everyday money management easier to
+              understand, helping you move from simply spending to making more
+              intentional financial decisions.
+            </p>
+            <a href="Auth/signup.html" class="text-link">
+              Get started today
+              <i data-lucide="arrow-up-right"></i>
+            </a>
+          </aside>
+        </div>
+      </section>
+
+      <!-- Final call to action -->
+      <section class="section cta-section">
+        <div class="container">
+          <div class="cta-card">
+            <div class="cta-glow"></div>
+            <div class="cta-content">
+              <span class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</span>
+              <h2>Make Your Money Make More Sense.</h2>
+              <p>
+                Start building a clearer picture of your finances, one
+                transaction at a time.
+              </p>
+            </div>
+
+            <a
+              href="Auth/signup.html"
+              class="button button-primary button-large"
+            >
+              Get Started for Free
+              <i data-lucide="arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-main">
+        <div class="footer-brand">
+          <a href="#home" class="brand">
+            <span class="brand-icon">
+            <img src="./media/logo.png" alt="" width="62" height="62">
+            </span>
+            <span>Finanace <span class="brand-accent">Tracker</span></span>
+          </a>
+          <p>Track. Plan. Grow.</p>
+        </div>
+
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#about">About</a>
+        </div>
+
+        <div class="footer-auth">
+          <a href="Auth/signin.html">Sign In</a>
+          <a href="Auth/signup.html">Create Account</a>
+        </div>
+      </div>
+
+      <div class="container footer-bottom">
+        <p>© <span id="currentYear"></span> Finance Tracker. All rights reserved.</p>
+        <p>Made to help you understand your money.</p>
+      </div>
+    </footer>
+    <script src="./js/index.js" ></script>
+
+  </body>
+</html>

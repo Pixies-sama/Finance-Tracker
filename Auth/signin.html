@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In | FinTrack</title>
+    <meta name="theme-color" content="#081426" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+      integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="shortcut icon" href="../media/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/signin.css" />
+  </head>
+  <body>
+    <main class="auth-container">
+      <!-- Left Welcome Section -->
+      <section class="auth-welcome">
+        <div class="brand">
+          <div class="brand-icon">
+            <img src="../media/logo.png" alt="" width="62" height="62" style="border-radius: 18px;"/>
+          </div>
+          <span>Finance Tracker</span>
+        </div>
+
+        <div class="welcome-content">
+          <span class="welcome-tag">YOUR MONEY, YOUR CONTROL</span>
+
+          <h1>Welcome back to your financial journey.</h1>
+
+          <p>
+            Take control of your spending, track your expenses, and make smarter
+            financial decisions every day.
+          </p>
+
+          <div class="welcome-stats">
+            <div class="stat-item">
+              <span class="stat-icon">↗</span>
+              <div>
+                <h3>Track smarter</h3>
+                <p>Understand your spending habits.</p>
+              </div>
+            </div>
+
+            <div class="stat-item">
+              <span class="stat-icon">✓</span>
+              <div>
+                <h3>Stay in control</h3>
+                <p>Keep your financial goals on track.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="welcome-footer">Make every naira count.</p>
+      </section>
+
+      <!-- Right Sign In Form -->
+      <section class="auth-form-section">
+        <div class="mobile-brand">
+          <div class="brand-icon">F</div>
+          <span>Finance Tracker</span>
+        </div>
+
+        <div class="auth-form-wrapper">
+          <div class="form-heading">
+            <span class="form-label">WELCOME BACK</span>
+            <h2>Sign in to your account</h2>
+            <p>Enter your details to continue.</p>
+          </div>
+
+          <form id="signinForm">
+            <div class="form-group">
+              <label for="email">Email address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <div class="password-label">
+                <label for="password">Password</label>
+                <a href="../Auth/forget-password.html">Forgot password?</a>
+              </div>
+
+              <div class="password-wrapper">
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Enter your password"
+                  autocomplete="current-password"
+                  required
+                />
+
+                <button
+                  type="button"
+                  class="toggle-password"
+                  aria-label="Show password"
+                  aria-pressed="false"
+                  data-target="password"
+                >
+                  <svg
+                    class="eye-open"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"
+                    />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div
+              id="signinMessage"
+              class="form-message"
+              aria-live="polite"
+            ></div>
+
+            <button type="submit" class="auth-button">
+              Sign In
+              <span
+                ><i
+                  class="fa-solid fa-arrow-right-long"
+                  style="color: rgb(10, 10, 10)"
+                ></i
+              ></span>
+            </button>
+          </form>
+
+          <div class="auth-divider">
+            <span>OR CONTINUE WITH</span>
+          </div>
+
+          <button type="button" class="google-button" id="googleSignIn">
+            <span class="google-icon"
+              ><i
+                class="fa-brands fa-google"
+                style="color: rgb(197, 59, 13)"
+              ></i
+            ></span>
+            Continue with Google
+          </button>
+
+          <p class="auth-switch">
+            Don't have an account?
+            <a href="signup.html">Create an account</a>
+          </p>
+        </div>
+
+        <p class="form-footer">Secure access to your personal finances.</p>
+      </section>
+    </main>
+
+    <script type="module" src="../js/signin.js"></script>
+  </body>
+</html>

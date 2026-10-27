@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#081426" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+      integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="shortcut icon" href="../media/logo.jpg" type="image/x-icon">
+
+    <title>Create Account | FinanceTracker</title>
+
+    <link rel="stylesheet" href="../css/signup.css" />
+  </head>
+
+  <body class="auth-page">
+    <main class="auth-layout">
+      <!-- Left: Branding and welcome section -->
+      <section class="auth-brand-panel">
+        <a href="signup.html" class="brand-logo">
+          <span class="brand-icon" aria-hidden="true"><img src="../media/naira.png" alt="" width="24"></span>
+          <span>Finance<span class="brand-highlight">Tracker</span></span>
+        </a>
+
+        <div class="brand-content">
+          <span class="eyebrow"> YOUR MONEY, YOUR FUTURE </span>
+
+          <h1>
+            Take control of
+            <span class="text-highlight">your finances.</span>
+          </h1>
+
+          <p class="brand-description">
+            Track your spending, understand your habits, and make smarter
+            financial decisions — all in one place.
+          </p>
+
+          <div class="brand-features">
+            <div class="brand-feature">
+              <span class="feature-icon" aria-hidden="true">↗</span>
+              <div>
+                <h3>Track every transaction</h3>
+                <p>Know where your money goes.</p>
+              </div>
+            </div>
+
+            <div class="brand-feature">
+              <span class="feature-icon" aria-hidden="true">◷</span>
+              <div>
+                <h3>Understand your spending</h3>
+                <p>Turn financial data into insights.</p>
+              </div>
+            </div>
+
+            <div class="brand-feature">
+              <span class="feature-icon" aria-hidden="true">◎</span>
+              <div>
+                <h3>Stay on budget</h3>
+                <p>Build better financial habits.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="brand-footer">Make every naira count.</p>
+      </section>
+
+      <!-- Right: Registration form -->
+      <section class="auth-form-panel">
+        <div class="auth-form-container">
+          <header class="form-heading">
+            <p class="mobile-brand">
+              Finance<span class="brand-highlight">Track</span>
+            </p>
+
+            <h2>Create your account</h2>
+
+            <p>Start managing your finances with confidence.</p>
+          </header>
+
+          <!-- Sign-up form -->
+          <form id="signupForm" class="auth-form">
+            <div class="form-group">
+              <label for="fullName">Full name</label>
+
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                placeholder="Enter your full name"
+                autocomplete="name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email address</label>
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+
+              <div class="password-wrapper">
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Create a strong password"
+                  autocomplete="new-password"
+                  minlength="6"
+                  required
+                />
+
+                <button
+                  type="button"
+                  class="toggle-password"
+                  aria-label="Show password"
+                  aria-pressed="false"
+                  data-target="password"
+                >
+                  <svg
+                    class="eye-open"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"
+                    />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                </button>
+              </div>
+
+              <small class="input-hint">Use at least 6 characters.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="confirmPassword">Confirm password</label>
+
+              <div class="password-wrapper">
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  placeholder="Enter your password again"
+                  autocomplete="new-password"
+                  minlength="6"
+                  required
+                />
+
+                <button
+                  type="button"
+                  class="toggle-password"
+                  aria-label="Show password"
+                  aria-pressed="false"
+                  data-target="confirmPassword"
+                >
+                  <svg
+                    class="eye-open"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"
+                    />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Area for JavaScript feedback -->
+            <p
+              id="signupMessage"
+              class="form-message"
+              role="status"
+              aria-live="polite"
+            ></p>
+
+            <button type="submit" id="signupButton" class="btn btn-primary">
+              Create account
+              <span aria-hidden="true"><i class="fa-solid fa-arrow-right-long" style="color: rgb(20, 21, 21);"></i></span>
+            </button>
+          </form>
+
+          <div class="form-divider">
+            <span>or continue with</span>
+          </div>
+
+          <button type="button" id="googleSignupButton" class="btn btn-google">
+            <span class="google-icon" aria-hidden="true"
+              ><i class="fa-brands fa-google"></i
+            ></span>
+            Sign up with Google
+          </button>
+
+          <p class="auth-switch">
+            Already have an account?
+            <a href="signin.html">Sign in</a>
+          </p>
+
+          <p class="terms-text">
+            By creating an account, you agree to use FinanceTrack responsibly
+            and keep your account secure.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="../js/signup.js"></script>
+  </body>
+</html>

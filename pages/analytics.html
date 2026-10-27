@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#081426" />
+
+    <title>Analytics | Finance Tracker</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="../css/analytics.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body>
+    <div class="app-layout">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <a href="index.html" class="brand">
+          <div class="brand-icon">
+            <i data-lucide="wallet"></i>
+          </div>
+          <span>Finance<span class="brand-light">Tracker</span></span>
+        </a>
+
+        <div class="nav-label">MENU</div>
+
+        <nav class="navigation">
+          <a href="dashboard.html" class="nav-link">
+            <i data-lucide="layout-dashboard"></i>
+            <span>Dashboard</span>
+          </a>
+
+          <a href="transactions.html" class="nav-link">
+            <i data-lucide="receipt"></i>
+            <span>Transactions</span>
+          </a>
+
+          <a href="analytics.html" class="nav-link active">
+            <i data-lucide="chart-no-axes-combined"></i>
+            <span>Analytics</span>
+          </a>
+
+          <a href="budget.html" class="nav-link">
+            <i data-lucide="wallet-cards"></i>
+            <span>Budget</span>
+          </a>
+
+          <a href="settings.html" class="nav-link">
+            <span class="nav-icon">⚙</span>
+            <span>Settings</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="upgrade-card">
+            <div class="upgrade-icon">✦</div>
+            <h3>Take control of your money</h3>
+            <p>Small insights can lead to smarter financial decisions.</p>
+          </div>
+
+          <button class="logout-btn" id="logoutBtn">
+            <span>↪</span> Log out
+          </button>
+        </div>
+      </aside>
+
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <header class="topbar">
+          <div class="topbar-left">
+            <button
+              class="menu-toggle"
+              id="menuToggle"
+              aria-label="Open navigation"
+            >
+              ☰
+            </button>
+
+            <div>
+              <p class="eyebrow">YOUR FINANCES</p>
+              <h1>Analytics</h1>
+            </div>
+          </div>
+
+          <div class="profile">
+            <div class="profile-avatar" id="userAvatar">U</div>
+            <div class="profile-details">
+              <span id="userName">Your Account</span>
+              <small id="userEmail">Loading profile...</small>
+            </div>
+          </div>
+        </header>
+
+        <section class="welcome-section">
+          <div>
+            <h2>Understand your money.</h2>
+            <p>Track your financial habits and make more informed decisions.</p>
+          </div>
+
+          <label class="period-control">
+            <span class="sr-only">Select analytics period</span>
+            <select id="periodFilter">
+              <option value="month">This month</option>
+              <option value="lastMonth">Last month</option>
+              <option value="year">This year</option>
+            </select>
+          </label>
+        </section>
+
+        <!-- Summary Cards -->
+        <section class="summary-grid">
+          <article class="summary-card">
+            <div class="card-top">
+              <span class="card-label">Total Income</span>
+              <span class="card-icon income-icon">↙</span>
+            </div>
+            <h2 id="totalIncome">₦0.00</h2>
+            <p class="card-description">Money received</p>
+          </article>
+
+          <article class="summary-card">
+            <div class="card-top">
+              <span class="card-label">Total Expenses</span>
+              <span class="card-icon expense-icon">↗</span>
+            </div>
+            <h2 id="totalExpenses">₦0.00</h2>
+            <p class="card-description">Money spent</p>
+          </article>
+
+          <article class="summary-card">
+            <div class="card-top">
+              <span class="card-label">Net Savings</span>
+              <span class="card-icon savings-icon">◈</span>
+            </div>
+            <h2 id="netSavings">₦0.00</h2>
+            <p class="card-description">Income minus expenses</p>
+          </article>
+
+          <article class="summary-card">
+            <div class="card-top">
+              <span class="card-label">Savings Rate</span>
+              <span class="card-icon rate-icon">%</span>
+            </div>
+            <h2 id="savingsRate">0%</h2>
+            <p class="card-description">Share of income saved</p>
+          </article>
+        </section>
+
+        <!-- Main Chart -->
+        <section class="content-grid">
+          <article class="panel trend-panel">
+            <div class="panel-heading">
+              <div>
+                <h3>Income vs. Expenses</h3>
+                <p>Compare money earned and spent</p>
+              </div>
+              <span class="chart-badge">Financial trend</span>
+            </div>
+
+            <div class="chart-container trend-chart">
+              <canvas id="incomeExpenseChart"></canvas>
+            </div>
+
+            <div class="chart-legend">
+              <span><i class="legend-dot teal-dot"></i> Income</span>
+              <span><i class="legend-dot red-dot"></i> Expenses</span>
+            </div>
+          </article>
+
+          <!-- Expense Breakdown -->
+          <article class="panel breakdown-panel">
+            <div class="panel-heading">
+              <div>
+                <h3>Expense Breakdown</h3>
+                <p>Where your money goes</p>
+              </div>
+            </div>
+
+            <div class="chart-container donut-chart">
+              <canvas id="expenseChart"></canvas>
+              <div class="donut-center">
+                <span>Total spent</span>
+                <strong id="donutTotal">₦0</strong>
+              </div>
+            </div>
+
+            <div class="category-list" id="categoryList">
+              <p class="empty-message">
+                Your expense categories will appear here.
+              </p>
+            </div>
+          </article>
+        </section>
+
+        <!-- Insights -->
+        <section class="insights-section">
+          <div class="section-heading">
+            <div>
+              <h3>Spending Insights</h3>
+              <p>A closer look at your financial habits</p>
+            </div>
+          </div>
+
+          <div class="insights-grid">
+            <article class="insight-card">
+              <div class="insight-icon purple-icon">◎</div>
+              <div>
+                <span class="insight-label">Top Spending Category</span>
+                <h4 id="topCategory">No data yet</h4>
+                <p id="topCategoryText">
+                  Add expenses to discover your biggest category.
+                </p>
+              </div>
+            </article>
+
+            <article class="insight-card">
+              <div class="insight-icon green-icon">↗</div>
+              <div>
+                <span class="insight-label">Financial Balance</span>
+                <h4 id="balanceStatus">Awaiting transactions</h4>
+                <p id="balanceText">
+                  Your income and expenses will be compared here.
+                </p>
+              </div>
+            </article>
+
+            <article class="insight-card">
+              <div class="insight-icon blue-icon">✦</div>
+              <div>
+                <span class="insight-label">Your Savings Rate</span>
+                <h4 id="savingsInsight">0% saved</h4>
+                <p id="savingsText">
+                  Track your savings as you record transactions.
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <footer class="page-footer">
+          <p>Finance Tracker <span>•</span> Make every naira count.</p>
+        </footer>
+      </main>
+    </div>
+    <script type="module" src="../js/analytics.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
