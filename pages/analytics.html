@@ -13,6 +13,8 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+        <link rel="shortcut icon" href="../media/logo.png" type="image/x-icon" />
+
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js"></script>
     <link rel="stylesheet" href="../css/analytics.css" />
 
@@ -23,38 +25,47 @@
     <div class="app-layout">
       <!-- Sidebar -->
       <aside class="sidebar" id="sidebar">
-        <a href="index.html" class="brand">
-          <div class="brand-icon">
-            <i data-lucide="wallet"></i>
+        <a href="../pages/dashboard.html" class="brand">
+          <div>
+            <img
+              src="../media/logo.png"
+              alt=""
+              width="50"
+              height="50"
+              style="border-radius: 18px"
+            />
           </div>
-          <span>Finance<span class="brand-light">Tracker</span></span>
+          <span>Finance Tracker</span>
         </a>
 
         <div class="nav-label">MENU</div>
 
         <nav class="navigation">
-          <a href="dashboard.html" class="nav-link">
+          <a href="../pages/dashboard.html" class="nav-link">
             <i data-lucide="layout-dashboard"></i>
             <span>Dashboard</span>
           </a>
 
-          <a href="transactions.html" class="nav-link">
+          <a href="../pages/transactions.html" class="nav-link">
             <i data-lucide="receipt"></i>
             <span>Transactions</span>
           </a>
 
-          <a href="analytics.html" class="nav-link active">
+          <a href="../pages/analytics.html" class="nav-link active">
             <i data-lucide="chart-no-axes-combined"></i>
             <span>Analytics</span>
           </a>
 
-          <a href="budget.html" class="nav-link">
+          <a href="../pages/budget.html" class="nav-link">
             <i data-lucide="wallet-cards"></i>
             <span>Budget</span>
           </a>
 
-          <a href="settings.html" class="nav-link">
-            <span class="nav-icon">⚙</span>
+          <div class="sidebar-label preferences-label">PREFERENCES</div>
+          <a href="../pages/settings.html" class="nav-link">
+            <span class="nav-icon">
+              <i data-lucide="settings"></i>
+            </span>
             <span>Settings</span>
           </a>
         </nav>
@@ -67,7 +78,9 @@
           </div>
 
           <button class="logout-btn" id="logoutBtn">
-            <span>↪</span> Log out
+            <span>
+          <i data-lucide="log-out"></i>
+            </span> Log out
           </button>
         </div>
       </aside>

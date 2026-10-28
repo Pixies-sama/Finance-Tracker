@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard | Finance Tracker</title>
     <link rel="stylesheet" href="../css/dashboard.css" />
-    <link rel="shortcut icon" href="../media/logo.jpg" type="image/x-icon">
+        <link rel="shortcut icon" href="../media/logo.png" type="image/x-icon" />
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js"></script>
   </head>
 
@@ -14,8 +14,14 @@
       <!-- Sidebar -->
       <aside class="sidebar" id="sidebar">
         <a href="../pages/dashboard.html" class="brand">
-          <div class="brand-icon">
-            <i data-lucide="wallet"></i>
+          <div>
+            <img
+              src="../media/logo.png"
+              alt=""
+              width="50"
+              height="50"
+              style="border-radius: 18px"
+            />
           </div>
           <span>Finance Tracker</span>
         </a>
@@ -23,22 +29,22 @@
         <div class="sidebar-label">MENU</div>
 
         <nav class="navigation">
-          <a href="dashboard.html" class="nav-link active">
+          <a href="../pages/dashboard.html" class="nav-link active">
             <i data-lucide="layout-dashboard"></i>
             <span>Dashboard</span>
           </a>
 
-          <a href="transactions.html" class="nav-link">
+          <a href="../pages/transactions.html" class="nav-link">
             <i data-lucide="receipt"></i>
             <span>Transactions</span>
           </a>
 
-          <a href="analytics.html" class="nav-link">
+          <a href="../pages/analytics.html" class="nav-link">
             <i data-lucide="chart-no-axes-combined"></i>
             <span>Analytics</span>
           </a>
 
-          <a href="budget.html" class="nav-link">
+          <a href="../pages/budget.html" class="nav-link">
             <i data-lucide="wallet-cards"></i>
             <span>Budget</span>
           </a>
@@ -47,7 +53,7 @@
         <div class="sidebar-label preferences-label">PREFERENCES</div>
 
         <nav class="navigation">
-          <a href="settings.html" class="nav-link">
+          <a href="../pages/settings.html" class="nav-link">
             <i data-lucide="settings"></i>
             <span>Settings</span>
           </a>
@@ -123,7 +129,7 @@
               <p>Here's what's happening with your finances today.</p>
             </div>
 
-            <a href="transactions.html" class="primary-button">
+            <a href="../pages/transactions.html" class="primary-button">
               <i data-lucide="plus"></i>
               Add Transaction
             </a>
@@ -237,7 +243,7 @@
                 <p>Your latest financial activities</p>
               </div>
 
-              <a href="transactions.html" class="view-all">
+              <a href="../pages/transactions.html" class="view-all">
                 View all
                 <i data-lucide="arrow-up-right"></i>
               </a>

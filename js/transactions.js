@@ -104,6 +104,59 @@ const userEmail = document.getElementById("userEmail");
 const userAvatar = document.getElementById("userAvatar");
 const logoutButton = document.getElementById("logoutButton");
 
+
+
+const sidebar = document.getElementById("sidebar");
+const menuToggle = document.getElementById("menuToggle");
+const sidebarOverlay = document.getElementById("sidebarOverlay");
+
+// Open the sidebar
+function openSidebar() {
+  sidebar.classList.add("open");
+  sidebarOverlay.classList.add("show");
+  menuToggle.setAttribute("aria-expanded", "true");
+  document.body.style.overflow = "hidden";
+}
+
+// Close the sidebar
+function closeSidebar() {
+  sidebar.classList.remove("open");
+  sidebarOverlay.classList.remove("show");
+  menuToggle.setAttribute("aria-expanded", "false");
+  document.body.style.overflow = "";
+}
+
+// Toggle sidebar when the menu button is clicked
+menuToggle.addEventListener("click", () => {
+  if (sidebar.classList.contains("open")) {
+    closeSidebar();
+  } else {
+    openSidebar();
+  }
+});
+
+// Close sidebar when the dark overlay is clicked
+sidebarOverlay.addEventListener("click", closeSidebar);
+
+// Close sidebar after clicking a navigation link
+document.querySelectorAll(".sidebar .nav-link").forEach((link) => {
+  link.addEventListener("click", closeSidebar);
+});
+
+// Close sidebar when Escape is pressed
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeSidebar();
+  }
+});
+
+// Reset sidebar when returning to desktop screen width
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 760) {
+    closeSidebar();
+  }
+});
+
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
     window.location.replace("../Auth/signin.html");

@@ -69,7 +69,17 @@ button {
   background: var(--sidebar);
   border-right: 1px solid var(--border);
 }
+.sidebar-label {
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  margin: 0 10px 14px;
+}
 
+.preferences-label {
+  margin-top: 30px;
+}
 .brand {
   display: flex;
   align-items: center;

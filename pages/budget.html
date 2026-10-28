@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#081426" />
+
+  <title>Budget | Finance Tracker</title>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+        <link rel="shortcut icon" href="../media/logo.png" type="image/x-icon" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/budget.css" />
+</head>
+
+<body>
+  <div class="app-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <a href="../pages/dashboard.html" class="brand">
+          <div>
+            <img
+              src="../media/logo.png"
+              alt=""
+              width="50"
+              height="50"
+              style="border-radius: 18px"
+            />
+          </div>
+          <span>Finance Tracker</span>
+        </a>
+
+      <p class="nav-label">WORKSPACE</p>
+
+      <nav class="nav-menu">
+          <a href="../pages/dashboard.html" class="nav-link">
+          <span class="nav-icon">
+            <i data-lucide="layout-dashboard"></i>
+          </span>
+          <span>Dashboard</span>
+        </a>
+
+        <a href="../pages/transactions.html" class="nav-link">
+          <span class="nav-icon">
+            <i data-lucide="arrow-left-right"></i>
+          </span>
+          <span>Transactions</span>
+        </a>
+
+        <a href="../pages/analytics.html" class="nav-link">
+          <span class="nav-icon">
+            <i data-lucide="chart-no-axes-combined"></i>
+          </span>
+          <span>Analytics</span>
+        </a>
+
+        <a href="../pages/budget.html" class="nav-link active">
+          <span class="nav-icon">
+            <i data-lucide="wallet-cards"></i>
+          </span>
+          <span>Budget</span>
+        </a>
+
+        <div class="sidebar-label preferences-label">PREFERENCES</div>
+        <a href="../pages/settings.html" class="nav-link">
+          <span class="nav-icon">
+            <i data-lucide="settings"></i>
+          </span>
+          <span>Settings</span>
+        </a>
+      </nav>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <div class="help-icon">✦</div>
+          <h3>Build better habits</h3>
+          <p>Set spending limits and stay in control of your money.</p>
+        </div>
+
+        <button class="logout-button" id="logoutBtn">
+          <span>
+          <i data-lucide="log-out"></i>
+
+          </span> Log out
+        </button>
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Main content -->
+    <main class="main-content">
+
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+          ☰
+        </button>
+
+        <div class="breadcrumb">
+          <span>Workspace</span>
+          <span class="breadcrumb-divider">/</span>
+          <strong>Budget</strong>
+        </div>
+
+        <div class="profile-area">
+          <div class="notification-icon" aria-label="Notifications">♧</div>
+
+          <div class="profile-details">
+            <div class="avatar" id="userAvatar">U</div>
+            <div>
+              <p class="profile-name" id="userName">Loading...</p>
+              <p class="profile-email" id="userEmail">Your account</p>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="page-content">
+
+        <!-- Page heading -->
+        <div class="page-heading">
+          <div>
+            <p class="eyebrow">MONEY MANAGEMENT</p>
+            <h1>Your budgets</h1>
+            <p class="page-subtitle">
+              Plan your spending, track your limits, and save with purpose.
+            </p>
+          </div>
+
+          <button class="primary-button" id="addBudgetBtn">
+            <span>＋</span> Add budget
+          </button>
+        </div>
+
+        <!-- Month selector -->
+        <div class="budget-toolbar">
+          <div>
+            <span class="toolbar-label">Budget period</span>
+            <div class="period-control">
+              <span class="calendar-icon">▦</span>
+              <select id="periodFilter" aria-label="Select budget period">
+                <option value="month">This month</option>
+                <option value="lastMonth">Last month</option>
+                <option value="year">This year</option>
+              </select>
+              <span class="select-arrow">⌄</span>
+            </div>
+          </div>
+
+          <p class="updated-label">
+            <span class="status-dot"></span>
+            Your spending overview
+          </p>
+        </div>
+
+        <!-- Summary cards -->
+        <section class="summary-grid">
+
+          <article class="summary-card">
+            <div class="summary-card-top">
+              <span class="summary-label">Total budget</span>
+              <span class="summary-icon blue-icon">◎</span>
+            </div>
+            <h2 id="totalBudget">₦0.00</h2>
+            <p class="summary-description">Across all categories</p>
+          </article>
+
+          <article class="summary-card">
+            <div class="summary-card-top">
+              <span class="summary-label">Total spent</span>
+              <span class="summary-icon orange-icon">↗</span>
+            </div>
+            <h2 id="totalSpent">₦0.00</h2>
+            <p class="summary-description">Spent within this period</p>
+          </article>
+
+          <article class="summary-card">
+            <div class="summary-card-top">
+              <span class="summary-label">Remaining budget</span>
+              <span class="summary-icon teal-icon">◈</span>
+            </div>
+            <h2 id="remainingBudget">₦0.00</h2>
+            <p class="summary-description">Available to spend</p>
+          </article>
+
+          <article class="summary-card">
+            <div class="summary-card-top">
+              <span class="summary-label">Budget used</span>
+              <span class="summary-icon purple-icon">◷</span>
+            </div>
+            <h2 id="budgetUsed">0%</h2>
+            <div class="mini-progress">
+              <div id="overallProgress" style="width: 0%"></div>
+            </div>
+            <p class="summary-description">Of your planned budget</p>
+          </article>
+
+        </section>
+
+        <!-- Overall budget progress -->
+        <section class="panel overall-panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Overall spending progress</h2>
+              <p>See how your spending compares with your budget.</p>
+            </div>
+            <span class="period-badge" id="overallStatus">On track</span>
+          </div>
+
+          <div class="overall-numbers">
+            <div>
+              <span class="muted-label">Spent so far</span>
+              <h3 id="overallSpent">₦0.00</h3>
+            </div>
+            <div class="text-right">
+              <span class="muted-label">Total limit</span>
+              <h3 id="overallLimit">₦0.00</h3>
+            </div>
+          </div>
+
+          <div class="large-progress">
+            <div id="overallLargeProgress" style="width: 0%"></div>
+          </div>
+
+          <div class="progress-caption">
+            <span id="overallProgressText">0% of budget used</span>
+            <span id="overallRemainingText">₦0 remaining</span>
+          </div>
+        </section>
+
+        <!-- Category budgets -->
+        <section class="panel categories-panel">
+          <div class="panel-heading category-heading">
+            <div>
+              <h2>Category budgets</h2>
+              <p>Monitor your limits for individual spending categories.</p>
+            </div>
+            <span class="category-count" id="budgetCount">0 budgets</span>
+          </div>
+
+          <div class="category-list" id="budgetList">
+            <!-- Generated by budget.js -->
+          </div>
+
+          <div class="empty-state hidden" id="emptyState">
+            <div class="empty-icon">◎</div>
+            <h3>No budgets yet</h3>
+            <p>Create a category budget to start tracking your spending.</p>
+            <button class="secondary-button" id="emptyAddBudgetBtn">
+              Create your first budget
+            </button>
+          </div>
+        </section>
+
+        <!-- Spending tips -->
+        <section class="tips-grid">
+          <article class="tip-card tip-blue">
+            <div class="tip-icon">✦</div>
+            <div>
+              <h3>Spend with intention</h3>
+              <p>Give every category a limit that supports your priorities.</p>
+            </div>
+          </article>
+
+          <article class="tip-card tip-orange">
+            <div class="tip-icon">↗</div>
+            <div>
+              <h3>Watch your limits</h3>
+              <p>Review categories nearing their limits before spending more.</p>
+            </div>
+          </article>
+        </section>
+
+        <footer class="page-footer">
+          <span>Finance Tracker</span>
+          <span>Make every naira count.</span>
+        </footer>
+
+      </section>
+    </main>
+  </div>
+
+  <!-- Add/Edit Budget Modal -->
+  <div class="modal-backdrop hidden" id="budgetModal">
+    <div class="budget-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-heading">
+        <div>
+          <p class="eyebrow">BUDGET MANAGEMENT</p>
+          <h2 id="modalTitle">Create a budget</h2>
+          <p>Set a spending limit for a category.</p>
+        </div>
+
+        <button class="close-modal" id="closeModalBtn" aria-label="Close modal">
+          &times;
+        </button>
+      </div>
+
+      <form id="budgetForm">
+        <label for="budgetCategory">Category</label>
+        <select id="budgetCategory" required>
+          <option value="">Select a category</option>
+          <option value="Food & Dining">Food & Dining</option>
+          <option value="Transportation">Transportation</option>
+          <option value="Shopping">Shopping</option>
+          <option value="Bills & Utilities">Bills & Utilities</option>
+          <option value="Education">Education</option>
+          <option value="Health">Health</option>
+          <option value="Entertainment">Entertainment</option>
+          <option value="Rent">Rent</option>
+          <option value="Personal Care">Personal Care</option>
+          <option value="Other">Other</option>
+        </select>
+
+        <label for="budgetAmount">Budget limit (₦)</label>
+        <input
+          type="number"
+          id="budgetAmount"
+          placeholder="e.g. 25000"
+          min="1"
+          step="0.01"
+          required
+        />
+
+        <label for="budgetMonth">Budget month</label>
+        <input type="month" id="budgetMonth" required />
+
+        <p class="form-error" id="formError"></p>
+
+        <div class="modal-actions">
+          <button type="button" class="cancel-button" id="cancelModalBtn">
+            Cancel
+          </button>
+          <button type="submit" class="primary-button" id="saveBudgetBtn">
+            Save budget
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- UI interactions only for now -->
+  <script type="module" src="../js/budget.js"></script>
+  <script>
+      lucide.createIcons();
+    </script>
+</body>
+</html>

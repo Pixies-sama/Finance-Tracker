@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1220" />
+
+    <title>Settings | Finance Tracker</title>
+
+    <link rel="stylesheet" href="../css/settings.css" />
+        <link rel="shortcut icon" href="../media/logo.png" type="image/x-icon" />
+
+    <!-- Lucide icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+
+  <body>
+    <div class="app-layout">
+
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <a href="../index.html" class="brand">
+          <span class="brand-icon">
+            <i data-lucide="wallet"></i>
+          </span>
+          <span>Finance<span class="brand-accent">Tracker</span></span>
+        </a>
+
+        <p class="sidebar-label">MENU</p>
+
+        <nav class="sidebar-nav">
+          <a href="../pages/dashboard.html" class="nav-link">
+            <i data-lucide="layout-dashboard"></i>
+            <span>Dashboard</span>
+          </a>
+
+          <a href="../pages/transactions.html" class="nav-link">
+            <i data-lucide="arrow-left-right"></i>
+            <span>Transactions</span>
+          </a>
+
+          <a href="../pages/analytics.html" class="nav-link">
+            <i data-lucide="chart-no-axes-combined"></i>
+            <span>Analytics</span>
+          </a>
+
+          <a href="../pages/budget.html" class="nav-link">
+            <i data-lucide="wallet-cards"></i>
+            <span>Budget</span>
+          </a>
+
+          <div class="sidebar-label preferences-label">PREFERENCES</div>
+          <a href="../pages/settings.html" class="nav-link active">
+            <i data-lucide="settings"></i>
+            <span>Settings</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="user-mini">
+            <div class="user-avatar" id="userAvatar">U</div>
+            <div class="user-mini-info">
+              <strong id="userName">Loading...</strong>
+              <span id="userEmail">Please wait</span>
+            </div>
+          </div>
+
+          <button class="logout-button" id="logoutButton" type="button">
+            <i data-lucide="log-out"></i>
+            <span>Log out</span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- Mobile overlay -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+      <!-- Main content -->
+      <main class="main-content">
+
+        <header class="topbar">
+          <div class="topbar-left">
+            <button
+              class="menu-toggle"
+              id="menuToggle"
+              type="button"
+              aria-label="Open navigation menu"
+            >
+              <i data-lucide="menu"></i>
+            </button>
+
+            <div>
+              <p class="breadcrumb">Finance Tracker / Settings</p>
+              <h1>Settings</h1>
+            </div>
+          </div>
+
+          <div class="topbar-status">
+            <span class="status-dot"></span>
+            Account settings
+          </div>
+        </header>
+
+        <section class="page-intro">
+          <p>Manage your account, security, and preferences.</p>
+        </section>
+
+        <!-- Settings navigation -->
+        <div class="settings-layout">
+
+          <aside class="settings-menu">
+            <a href="#profile" class="settings-menu-link active">
+              <i data-lucide="user-round"></i>
+              <span>Profile</span>
+            </a>
+
+            <a href="#security" class="settings-menu-link">
+              <i data-lucide="shield-check"></i>
+              <span>Security</span>
+            </a>
+
+            <a href="#preferences" class="settings-menu-link">
+              <i data-lucide="sliders-horizontal"></i>
+              <span>Preferences</span>
+            </a>
+
+            <a href="#account" class="settings-menu-link">
+              <i data-lucide="user-cog"></i>
+              <span>Account</span>
+            </a>
+          </aside>
+
+          <div class="settings-content">
+
+            <!-- Profile section -->
+            <section class="settings-card" id="profile">
+              <div class="card-heading">
+                <div>
+                  <h2>Profile information</h2>
+                  <p>Update the personal information associated with your account.</p>
+                </div>
+                <i data-lucide="user-round" class="heading-icon"></i>
+              </div>
+
+              <div class="profile-preview">
+                <div class="profile-avatar" id="profileAvatar">U</div>
+                <div>
+                  <h3 id="profileDisplayName">Loading profile...</h3>
+                  <p id="profileDisplayEmail">Loading email...</p>
+                </div>
+              </div>
+
+              <form id="profileForm">
+                <div class="form-group">
+                  <label for="fullName">Full name</label>
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    placeholder="Enter your full name"
+                    autocomplete="name"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email address</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Your email address"
+                    disabled
+                  />
+                  <small>Your email is managed by your sign-in provider.</small>
+                </div>
+
+                <div class="form-actions">
+                  <button class="primary-button" type="submit">
+                    Save changes
+                  </button>
+                </div>
+
+                <p class="form-message" id="profileMessage" role="status"></p>
+              </form>
+            </section>
+
+            <!-- Security section -->
+            <section class="settings-card" id="security">
+              <div class="card-heading">
+                <div>
+                  <h2>Security</h2>
+                  <p>Keep your account secure.</p>
+                </div>
+                <i data-lucide="shield-check" class="heading-icon"></i>
+              </div>
+
+              <div class="settings-option">
+                <div class="option-icon">
+                  <i data-lucide="key-round"></i>
+                </div>
+                <div class="option-details">
+                  <h3>Password</h3>
+                  <p>Request a password reset using your registered email.</p>
+                </div>
+                <button
+                  class="secondary-button"
+                  type="button"
+                  id="resetPasswordButton"
+                >
+                  Reset password
+                </button>
+              </div>
+
+              <p class="form-message" id="securityMessage" role="status"></p>
+            </section>
+
+            <!-- Preferences section -->
+            <section class="settings-card" id="preferences">
+              <div class="card-heading">
+                <div>
+                  <h2>Preferences</h2>
+                  <p>Choose how financial values appear in your dashboard.</p>
+                </div>
+                <i data-lucide="sliders-horizontal" class="heading-icon"></i>
+              </div>
+
+              <div class="form-group">
+                <label for="currency">Display currency</label>
+                <select id="currency" name="currency">
+                  <option value="NGN">Nigerian Naira (₦ NGN)</option>
+                  <option value="USD">US Dollar ($ USD)</option>
+                  <option value="GBP">British Pound (£ GBP)</option>
+                </select>
+                <small>
+                  This is a display preference. It does not convert transaction
+                  amounts between currencies.
+                </small>
+              </div>
+
+              <div class="form-actions">
+                <button class="primary-button" type="button" id="savePreferences">
+                  Save preferences
+                </button>
+              </div>
+
+              <p class="form-message" id="preferencesMessage" role="status"></p>
+            </section>
+
+            <!-- Account section -->
+            <section class="settings-card danger-card" id="account">
+              <div class="card-heading">
+                <div>
+                  <h2>Account management</h2>
+                  <p>Manage access to your Finance Tracker account.</p>
+                </div>
+                <i data-lucide="user-cog" class="heading-icon"></i>
+              </div>
+
+              <div class="settings-option">
+                <div class="option-icon">
+                  <i data-lucide="log-out"></i>
+                </div>
+                <div class="option-details">
+                  <h3>Sign out</h3>
+                  <p>Sign out of your current session on this device.</p>
+                </div>
+                <button
+                  class="secondary-button"
+                  type="button"
+                  id="accountLogoutButton"
+                >
+                  Log out
+                </button>
+              </div>
+            </section>
+
+          </div>
+        </div>
+
+        <footer class="page-footer">
+          <p>Finance Tracker · Take control of your finances.</p>
+        </footer>
+
+      </main>
+    </div>
+
+    <script type="module" src="../js/settings.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

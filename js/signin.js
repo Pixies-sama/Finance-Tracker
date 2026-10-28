@@ -101,7 +101,14 @@ signinForm.addEventListener("submit", async (e) => {
   }
 });
 
+
 googleSignIn.addEventListener("click", async () => {
+  // Prevent multiple popup requests
+  if (googleSignIn.disabled) return;
+
+  googleSignIn.disabled = true;
+  signinMessage.textContent = "Connecting to Google...";
+
   try {
     const result = await signInWithPopup(auth, provider);
     const user = result.user;
@@ -110,10 +117,18 @@ googleSignIn.addEventListener("click", async () => {
       window.location.href = "../pages/dashboard.html";
     } else {
       await signOut(auth);
-      signinMessage.textContent = "Please verify your email before logging in.";
+      signinMessage.textContent =
+        "Please verify your email before logging in.";
     }
   } catch (error) {
-    console.error(error.code, error.message);
-    signinMessage.textContent = "Google sign-in failed. Please try again.";
+    console.error("Google sign-in error:", error.code, error.message);
+
+    signinMessage.textContent =
+      error.code === "auth/cancelled-popup-request"
+        ? "A sign-in request was already in progress. Please try again."
+        : "Google sign-in failed. Please try again.";
+  } finally {
+    googleSignIn.disabled = false;
   }
 });
+
