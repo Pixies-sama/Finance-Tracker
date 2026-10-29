@@ -59,10 +59,9 @@ function showFormMessage(message, type) {
   formMessage.className = `form-message ${type}`;
 }
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
+import { auth, db } from "../js/config.js";
 
 import {
-  getFirestore,
   collection,
   addDoc,
   getDocs,
@@ -76,25 +75,9 @@ import {
 } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-firestore.js";
 
 import {
-  getAuth,
   onAuthStateChanged,
   signOut,
 } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
-
-// Your existing Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyAN6IdtEqc2UrP7HmJZNVJuFhXf3mfapQ0",
-  authDomain: "finance-tracker-23a17.firebaseapp.com",
-  projectId: "finance-tracker-23a17",
-  storageBucket: "finance-tracker-23a17.firebasestorage.app",
-  messagingSenderId: "773713831206",
-  appId: "1:773713831206:web:94596f675d9b3bea5b0de7",
-};
-
-// Initialize Firebase services
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
 
 // Current signed-in user
 let currentUser = null;

@@ -38,16 +38,16 @@ document.querySelectorAll(".toggle-password").forEach((button) => {
   });
 });
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
+
+import { auth, db } from "../js/config.js";
+
 import {
-  getFirestore,
   getDocs,
   doc,
   setDoc,
 } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-firestore.js";
 
 import {
-  getAuth,
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
@@ -55,18 +55,7 @@ import {
   signOut,
 } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAN6IdtEqc2UrP7HmJZNVJuFhXf3mfapQ0",
-  authDomain: "finance-tracker-23a17.firebaseapp.com",
-  projectId: "finance-tracker-23a17",
-  storageBucket: "finance-tracker-23a17.firebasestorage.app",
-  messagingSenderId: "773713831206",
-  appId: "1:773713831206:web:94596f675d9b3bea5b0de7",
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
+// Google sign-in provider
 const provider = new GoogleAuthProvider();
 
 signupForm.addEventListener("submit", async (e) => {
